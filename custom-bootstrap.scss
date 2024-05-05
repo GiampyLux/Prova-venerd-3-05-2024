@@ -1,0 +1,111 @@
+
+@import 'scss/functions';
+@import 'scss/variables';
+
+
+$new-primary: #141414;
+$new-secondary: #000;
+$new-info: #156733;
+
+
+$new-theme-colors: (
+  'primary': $new-primary,
+  'secondary2': $new-secondary,
+  'info': $new-info,
+);
+
+
+
+$theme-colors: map-merge($theme-colors, $new-theme-colors);
+
+
+$new-spacers: (
+  0: 0,
+  1: $spacer * 0.1,
+  2: $spacer * 0.25,
+  3: $spacer * 0.4,
+  4: $spacer * 0.6,
+  5: $spacer * 2,
+  6: $spacer * 3,
+  7: $spacer * 4,
+);
+
+$spacers: map-merge($spacers, $new-spacers);
+
+
+body {
+  a {
+    color: white !important
+  }
+}
+
+$itemGrow: 1.2;
+$duration: 250ms;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #000;
+}
+
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3,100%);
+  overflow:hidden;
+  scroll-behavior: smooth;
+
+  section {
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    margin: 20px 0;
+    
+    .item {
+      padding: 0 2px;
+      transition: $duration all;
+      
+      &:hover { 
+        margin: 0 40px;
+        transform: scale(1.2);
+      }
+      
+    }
+    
+    a {
+      position: absolute;
+      color: #fff;
+      text-decoration: none;
+      font-size: 6em;
+      background:rgb(0,0,0);
+      width: 80px;
+      padding: 20px;
+      text-align: center;
+      z-index: 1;
+      
+      &:nth-of-type(1) {
+        top:0; bottom:0; left:0;
+        background: linear-gradient(-90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+      }
+      &:nth-of-type(2) {
+        top:0; bottom:0; right: 0;
+        background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+      }
+      
+    }
+    
+  }
+}
+
+// Remove the arrow for Mobile
+@media only screen and (max-width: 600px) {
+  a.arrow__btn {
+    display:none;
+  }
+}
+@import 'scss/bootstrap.scss';

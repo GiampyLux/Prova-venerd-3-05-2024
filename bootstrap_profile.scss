@@ -1,0 +1,47 @@
+
+@import 'scss/functions';
+@import 'scss/variables';
+
+
+$new-primary: #141414;
+$new-secondary: #333333;
+$new-info: #156733;
+$new-btn: #666666;
+
+
+$new-theme-colors: (
+  'primary': $new-primary,
+  'secondary': $new-secondary,
+  'info': $new-info,
+  'diablo' $new-btn
+);
+
+
+
+$theme-colors: map-merge($theme-colors, $new-theme-colors);
+
+
+$new-spacers: (
+  0: 0,
+  1: $spacer * 0.1,
+  2: $spacer * 0.25,
+  3: $spacer * 0.4,
+  4: $spacer * 0.6,
+  5: $spacer * 2,
+  6: $spacer * 3,
+  7: $spacer * 4,
+);
+
+$spacers: map-merge($spacers, $new-spacers);
+
+
+body {
+
+
+  margin: 0;
+  a,h1{
+    color: #ffffff !important;
+  }
+}
+
+@import 'scss/bootstrap.scss';
